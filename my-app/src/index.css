@@ -37,6 +37,22 @@ html, body{
   gap:15px;
 }
 
+.inner-description{
+  font-size:80%;
+  margin:1% 0 0% 0;
+}
+
+a{
+  text-decoration: underline;
+  color:rgb(255, 255, 255);
+  margin:5%;
+  margin-left:0;
+}
+
+a:hover{
+  cursor:pointer;
+}
+
 #enigma-body{
   width: 85%;
   aspect-ratio: 1.5;
@@ -102,4 +118,8 @@ html, body{
 
 .gears{
   width:8.5%;
+}
+
+#temp-styling{
+  margin-left:1%;
 }
