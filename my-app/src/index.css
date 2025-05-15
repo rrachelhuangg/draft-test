@@ -123,3 +123,19 @@ a:hover{
 #temp-styling{
   margin-left:1%;
 }
+
+textarea{
+  display:inline-block;
+  vertical-align: top;
+  width:30%;
+  resize:none;  
+  margin-left:2.5%;
+  margin-right:2.5%;
+  font-size:110%;
+}
+
+#display-area{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
