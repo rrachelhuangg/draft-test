@@ -37,9 +37,15 @@ function HomePage(){
     const [input, setInput] = useState("");
 
     const handleInputEntered = (e) => {
-        const text = e.target.value.charAt(e.target.value.length-1);
+        const text = e.target.value.charAt(e.target.value.length-1).toUpperCase();
         setInput(text);
     }
+
+    useEffect(() => {
+        if (!input) return;
+        const timeout = setTimeout(()=>setInput(""), 150);
+        return () => clearTimeout(timeout);
+    }, [input]);
 
     return(
         <div id = "card">
@@ -70,7 +76,7 @@ function HomePage(){
                         <textarea id = "encoded-output" rows="12" cols="50">encoded text: </textarea>
                     </div>
                     <Lamps/>
-                    <Keyboard/>
+                    <Keyboard pressed={input}/>
                 </div>
             </div>
         </div>

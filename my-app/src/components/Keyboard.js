@@ -27,40 +27,40 @@ import X_unpressed from "../assets/images/keys_unpressed/X.png"
 import Y_unpressed from "../assets/images/keys_unpressed/Y.png"
 import Z_unpressed from "../assets/images/keys_unpressed/Z.png"
 
-function Keyboard(){
+function Keyboard({pressed}){
     return(
         <div id="keyboard">
             <div id="top-row">
-                <img src={Q_unpressed} class="unpressed-keys"/>
-                <img src={W_unpressed} class="unpressed-keys"/>
-                <img src={E_unpressed} class="unpressed-keys"/>
-                <img src={R_unpressed} class="unpressed-keys"/>
-                <img src={T_unpressed} class="unpressed-keys"/>
-                <img src={Z_unpressed} class="unpressed-keys"/>
-                <img src={U_unpressed} class="unpressed-keys"/>
-                <img src={I_unpressed} class="unpressed-keys"/>
-                <img src={O_unpressed} class="unpressed-keys"/>
+                <img src={Q_unpressed} className={`unpressed-keys ${pressed === "Q" ? "pressed-key": ""}`}/>
+                <img src={W_unpressed} className={`unpressed-keys ${pressed === "W" ? "pressed-key": ""}`}/>
+                <img src={E_unpressed} className={`unpressed-keys ${pressed === "E" ? "pressed-key": ""}`}/>
+                <img src={R_unpressed} className={`unpressed-keys ${pressed === "R" ? "pressed-key": ""}`}/>
+                <img src={T_unpressed} className={`unpressed-keys ${pressed === "T" ? "pressed-key": ""}`}/>
+                <img src={Z_unpressed} className={`unpressed-keys ${pressed === "Z" ? "pressed-key": ""}`}/>
+                <img src={U_unpressed} className={`unpressed-keys ${pressed === "U" ? "pressed-key": ""}`}/>
+                <img src={I_unpressed} className={`unpressed-keys ${pressed === "I" ? "pressed-key": ""}`}/>
+                <img src={O_unpressed} className={`unpressed-keys ${pressed === "O" ? "pressed-key": ""}`}/>
             </div>
             <div id="middle-row">
-                <img src={A_unpressed} class="unpressed-keys"/>
-                <img src={S_unpressed} class="unpressed-keys"/>
-                <img src={D_unpressed} class="unpressed-keys"/>
-                <img src={F_unpressed} class="unpressed-keys"/>
-                <img src={G_unpressed} class="unpressed-keys"/>
-                <img src={H_unpressed} class="unpressed-keys"/>
-                <img src={J_unpressed} class="unpressed-keys"/>
-                <img src={K_unpressed} class="unpressed-keys"/>
+                <img src={A_unpressed} className={`unpressed-keys ${pressed === "A" ? "pressed-key": ""}`}/>
+                <img src={S_unpressed} className={`unpressed-keys ${pressed === "S" ? "pressed-key": ""}`}/>
+                <img src={D_unpressed} className={`unpressed-keys ${pressed === "D" ? "pressed-key": ""}`}/>
+                <img src={F_unpressed} className={`unpressed-keys ${pressed === "F" ? "pressed-key": ""}`}/>
+                <img src={G_unpressed} className={`unpressed-keys ${pressed === "G" ? "pressed-key": ""}`}/>
+                <img src={H_unpressed} className={`unpressed-keys ${pressed === "H" ? "pressed-key": ""}`}/>
+                <img src={J_unpressed} className={`unpressed-keys ${pressed === "J" ? "pressed-key": ""}`}/>
+                <img src={K_unpressed} className={`unpressed-keys ${pressed === "K" ? "pressed-key": ""}`}/>
             </div>
             <div id="bottom-row">
-                <img src={P_unpressed} class="unpressed-keys"/>
-                <img src={Y_unpressed} class="unpressed-keys"/>
-                <img src={X_unpressed} class="unpressed-keys"/>
-                <img src={C_unpressed} class="unpressed-keys"/>
-                <img src={V_unpressed} class="unpressed-keys"/>
-                <img src={B_unpressed} class="unpressed-keys"/>
-                <img src={N_unpressed} class="unpressed-keys"/>
-                <img src={M_unpressed} class="unpressed-keys"/>
-                <img src={L_unpressed} class="unpressed-keys"/>
+                <img src={P_unpressed} className={`unpressed-keys ${pressed === "P" ? "pressed-key": ""}`}/>
+                <img src={Y_unpressed} className={`unpressed-keys ${pressed === "Y" ? "pressed-key": ""}`}/>
+                <img src={X_unpressed} className={`unpressed-keys ${pressed === "X" ? "pressed-key": ""}`}/>
+                <img src={C_unpressed} className={`unpressed-keys ${pressed === "C" ? "pressed-key": ""}`}/>
+                <img src={V_unpressed} className={`unpressed-keys ${pressed === "V" ? "pressed-key": ""}`}/>
+                <img src={B_unpressed} className={`unpressed-keys ${pressed === "B" ? "pressed-key": ""}`}/>
+                <img src={N_unpressed} className={`unpressed-keys ${pressed === "N" ? "pressed-key": ""}`}/>
+                <img src={M_unpressed} className={`unpressed-keys ${pressed === "M" ? "pressed-key": ""}`}/>
+                <img src={L_unpressed} className={`unpressed-keys ${pressed === "L" ? "pressed-key": ""}`}/>
             </div>
         </div>
     );
