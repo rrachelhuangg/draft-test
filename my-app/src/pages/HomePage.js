@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "../index.css";
 import Keyboard from "../components/Keyboard";
 import Lamps from "../components/Lamps";
@@ -32,12 +32,30 @@ import Z from "../assets/images/rotors/orientations/Z.png";
 import gears_Icon from "../assets/images/rotors/gears.png";
 import rod_Icon from "../assets/images/rotors/rod.png";
 
+import { SetupEnigma, EncodeLetter, UpdateRotors} from "../EncryptAlgo";
+
 
 function HomePage(){
     const [input, setInput] = useState("");
 
+    //enigma machine initialization
+    const machine = useRef(null);
+    useEffect(()=>{
+        const [plugboard, rotors, reflector] = SetupEnigma();
+        let rotors_rotations = [];
+        for(let i = 0; i < 3; i++){
+            rotors_rotations.push(0);
+        }
+        machine.current = {plugboard, rotors, reflector, rotors_rotations};
+    }, []);
+
     const handleInputEntered = (e) => {
         const text = e.target.value.charAt(e.target.value.length-1).toUpperCase();
+
+        const {plugboard, rotors, reflector, rotors_rotations} = machine.current;
+        EncodeLetter(text, plugboard, rotors, reflector);
+        UpdateRotors(rotors, rotors_rotations);
+
         setInput(text);
     }
 
