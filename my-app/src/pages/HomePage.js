@@ -39,15 +39,17 @@ function HomePage(){
     const [input, setInput] = useState("");
     const [encodedInput, setEncodedInput] = useState("");
     const [fullEncodedInput, setFullEncodedInput] = useState("");
+    const [rotorLetters, setRotorLetters] = useState(["A", "A", "A"]);
+
+    const rotor_images = {A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z};
 
     //enigma machine initialization
     const machine = useRef(null);
     useEffect(()=>{
         const [plugboard, rotors, reflector] = SetupEnigma();
-        let rotors_rotations = [];
-        for(let i = 0; i < 3; i++){
-            rotors_rotations.push(0);
-        }
+        const rotors_rotations = Array.from({length: 3}, ()=>Math.floor(Math.random()*26));
+        const initial_rotor_letters = rotors_rotations.map(r => "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[r%26]);
+        setRotorLetters(initial_rotor_letters);
         machine.current = {plugboard, rotors, reflector, rotors_rotations};
     }, []);
 
@@ -62,6 +64,8 @@ function HomePage(){
             const {plugboard, rotors, reflector, rotors_rotations} = machine.current;
             encodedLetter = EncodeLetter(text, plugboard, rotors, reflector);
             UpdateRotors(rotors, rotors_rotations);
+            const updatedRotorLetters = rotors_rotations.map(r => "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[r%26]);
+            setRotorLetters(updatedRotorLetters);
         }
 
         setInput(text);
@@ -97,11 +101,11 @@ function HomePage(){
                         <div id="rotors-container">
                             <img src={rod_Icon} id="rod"/>
                             <div id="rotors">
-                                <img src={A} class="rotor"/>
+                                <img src={rotor_images[rotorLetters[0]]} class="rotor"/>
                                 <img src={gears_Icon} class="gears"/>
-                                <img src={A} class="rotor"/>
+                                <img src={rotor_images[rotorLetters[1]]} class="rotor"/>
                                 <img src={gears_Icon} class="gears"/>
-                                <img src={A} class="rotor"/>
+                                <img src={rotor_images[rotorLetters[2]]} class="rotor"/>
                             </div>
                         </div>
                         <textarea id = "encoded-output" rows="12" cols="50" value={"encoded text: " + fullEncodedInput}>encoded text: </textarea>
