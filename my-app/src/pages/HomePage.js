@@ -37,6 +37,8 @@ import { SetupEnigma, EncodeLetter, UpdateRotors} from "../EncryptAlgo";
 
 function HomePage(){
     const [input, setInput] = useState("");
+    const [encodedInput, setEncodedInput] = useState("");
+    const [fullEncodedInput, setFullEncodedInput] = useState("");
 
     //enigma machine initialization
     const machine = useRef(null);
@@ -52,16 +54,27 @@ function HomePage(){
     const handleInputEntered = (e) => {
         const text = e.target.value.charAt(e.target.value.length-1).toUpperCase();
 
-        const {plugboard, rotors, reflector, rotors_rotations} = machine.current;
-        EncodeLetter(text, plugboard, rotors, reflector);
-        UpdateRotors(rotors, rotors_rotations);
+        let encodedLetter = "";
+        if("ABCDEFGHIJKLMNOPQRSTUVWXYZ".includes(text) === false){
+            encodedLetter = text;
+        }
+        else{
+            const {plugboard, rotors, reflector, rotors_rotations} = machine.current;
+            encodedLetter = EncodeLetter(text, plugboard, rotors, reflector);
+            UpdateRotors(rotors, rotors_rotations);
+        }
 
         setInput(text);
+        setEncodedInput(encodedLetter);
+        setFullEncodedInput(prev => prev + encodedLetter);
     }
 
     useEffect(() => {
         if (!input) return;
-        const timeout = setTimeout(()=>setInput(""), 150);
+        const timeout = setTimeout(()=>{
+            setInput("");
+            setEncodedInput("");
+        }, 150);
         return () => clearTimeout(timeout);
     }, [input]);
 
@@ -91,9 +104,9 @@ function HomePage(){
                                 <img src={A} class="rotor"/>
                             </div>
                         </div>
-                        <textarea id = "encoded-output" rows="12" cols="50">encoded text: </textarea>
+                        <textarea id = "encoded-output" rows="12" cols="50" value={"encoded text: " + fullEncodedInput}>encoded text: </textarea>
                     </div>
-                    <Lamps/>
+                    <Lamps pressed={encodedInput}/>
                     <Keyboard pressed={input}/>
                 </div>
             </div>

@@ -87,11 +87,24 @@ a:hover{
   margin-top:1.5%;
 }
 
-.unlit-lamps{
-  width:4.75%;
+.lamp {
+  background-color: rgb(231, 231, 231);
+  border-radius: 50%;
+  height: 2.25rem;
+  width: 2.25rem;
+  font-size: small;
+  color: rgb(153, 153, 153);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin:0.5%;
   margin-left:0.65%;
   margin-right:0.65%;
+}
+
+.lit-lamp{
+  background-color: rgb(255, 255, 131);
+  color: rgb(122, 122, 122);
 }
 
 #rotors-container{
