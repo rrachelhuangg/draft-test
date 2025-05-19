@@ -40,6 +40,7 @@ function HomePage(){
     const [encodedInput, setEncodedInput] = useState("");
     const [fullEncodedInput, setFullEncodedInput] = useState("");
     const [rotorLetters, setRotorLetters] = useState(["A", "A", "A"]);
+    const [openDescription, setOpenDescription] = useState(false);
 
     const rotor_images = {A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z};
 
@@ -88,9 +89,7 @@ function HomePage(){
                 <div id = "name">
                     the enigma machine.  
                     <div class="inner-description">
-                        <a href="https://google.com" target="_blank" class="temp-styling">about</a>
-                        encode:
-                        <a href="https://google.com" target="_blank" class="temp-styling">documents</a>
+                        <button onClick={()=>setOpenDescription(true)}>about</button>
                     </div>
                 </div>
             </div>
@@ -114,6 +113,18 @@ function HomePage(){
                     <Keyboard pressed={input}/>
                 </div>
             </div>
+        {openDescription && (
+            <div id="description-modal">
+                <div id="description-content">
+                    <div id="description-modal-close-header">
+                        <button id = "close-description-modal" onClick={()=>setOpenDescription(false)}>x</button>
+                    </div>
+                    <div id="description">
+                        The Enigma machine was an encryption device used by the Germans during World War II. 
+                    </div>
+                </div>
+            </div>
+        )}
         </div>
     );
 }
