@@ -173,6 +173,7 @@ button{
   padding-top:0.3rem;
   padding-bottom: 0.3rem;
   display: inline-block;
+  margin-right:1.25%;
 }
 
 button:hover{
@@ -181,7 +182,7 @@ button:hover{
   color: white;
 }
 
-#description-modal{
+.description-modal{
   position: fixed;
   top:0;
   left:0;
@@ -195,7 +196,7 @@ button:hover{
   color: black;
 }
 
-#description-content{
+.description-content{
   background:white;
   padding: 0.5rem;
   border-radius: 12px;
@@ -204,13 +205,13 @@ button:hover{
   z-index: 1001;
 }
 
-#description-modal-close-header{
+.description-modal-close-header{
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 
-#close-description-modal{
+.close-description-modal{
   border: none;
 }
 
@@ -218,7 +219,7 @@ button:hover{
   padding: 1rem;
 }
 
-#description-modal-title{
+.description-modal-title{
   font-size:125%;
   font-weight: bold;
 }

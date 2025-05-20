@@ -41,6 +41,7 @@ function HomePage(){
     const [fullEncodedInput, setFullEncodedInput] = useState("");
     const [rotorLetters, setRotorLetters] = useState(["A", "A", "A"]);
     const [openDescription, setOpenDescription] = useState(false);
+    const [openPlay, setOpenPlay] = useState(false);
 
     const rotor_images = {A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z};
 
@@ -89,6 +90,7 @@ function HomePage(){
                 <div id = "name">
                     the enigma machine.  
                     <div class="inner-description">
+                        <button onClick={()=>setOpenPlay(true)}>play</button>
                         <button onClick={()=>setOpenDescription(true)}>about</button>
                     </div>
                 </div>
@@ -114,12 +116,12 @@ function HomePage(){
                 </div>
             </div>
         {openDescription && (
-            <div id="description-modal">
-                <div id="description-content">
-                    <div id="description-modal-close-header">
-                        <button id = "close-description-modal" onClick={()=>setOpenDescription(false)}>x</button>
+            <div class="description-modal">
+                <div class="description-content">
+                    <div class="description-modal-close-header">
+                        <button class = "close-description-modal" onClick={()=>setOpenDescription(false)}>x</button>
                     </div>
-                    <div class="description" id="description-modal-title">
+                    <div class="description description-modal-title">
                         The Enigma Machine
                     </div> 
                     <div class="description">
@@ -142,6 +144,23 @@ function HomePage(){
                     <div class="description">
                         After an input letter passes through the three rotors, the reflector passes it back through the three rotors
                         in the opposite direction for an added layer of encryption.
+                    </div>
+                </div>
+            </div>
+        )}
+        {openPlay && (
+            <div class="description-modal">
+                <div class="description-content">
+                <div class="description-modal-close-header">
+                        <button class = "close-description-modal" onClick={()=>setOpenPlay(false)}>x</button>
+                    </div>
+                    <div class="description description-modal-title">
+                        Try it out!
+                    </div>
+                    <div class="description">
+                        Click on the text input area and begin typing. The corresponding key on screen will depress, and
+                        the lamp corresponding to the encoded input will light up. The rotors will also increment by one
+                        as appropriate.
                     </div>
                 </div>
             </div>
