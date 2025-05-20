@@ -2,6 +2,7 @@
 
 *{
   font-family:'Alegreya';
+  letter-spacing: 0.05rem;
 }
 
 html, body{
@@ -213,6 +214,11 @@ button:hover{
   border: none;
 }
 
-#description{
+.description{
   padding: 1rem;
+}
+
+#description-modal-title{
+  font-size:125%;
+  font-weight: bold;
 }

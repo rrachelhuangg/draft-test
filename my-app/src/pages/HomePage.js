@@ -119,8 +119,29 @@ function HomePage(){
                     <div id="description-modal-close-header">
                         <button id = "close-description-modal" onClick={()=>setOpenDescription(false)}>x</button>
                     </div>
-                    <div id="description">
-                        The Enigma machine was an encryption device used by the Germans during World War II. 
+                    <div class="description" id="description-modal-title">
+                        The Enigma Machine
+                    </div> 
+                    <div class="description">
+                        The Enigma machine was an encryption device used by the Germans during World War II. Enigma was thought to be uncrackable,
+                        until Alan Turing invented a decryption device that took approximately 3 years to perfect.  
+                    </div>
+                    <div class="description">
+                        Enigma's complexity is due to a combination of mathematical group theory and mechanical ingenuity. The machine
+                        has three main parts that are applied to each of the user's input letters: the plugboard, the rotors, and the reflector.
+                    </div>
+                    <div class="description">
+                        The plugboard generates random pairings of each letter based on letter pairs that the operator would connect with a wire.
+                        This functionality is simulated by exhaustively pairing letters from the alphabet together every time the page is reloaded. 
+                    </div>
+                    <div class="description">
+                        The plugboard assignment of the input letter is then sequentially passed through the three rotors. The output of each rotor is 
+                        used as the input for the next rotor, and the rotors increment by 1 with each new letter, so that the new letter will not
+                        get mapped to the same input. 
+                    </div>
+                    <div class="description">
+                        After an input letter passes through the three rotors, the reflector passes it back through the three rotors
+                        in the opposite direction for an added layer of encryption.
                     </div>
                 </div>
             </div>
