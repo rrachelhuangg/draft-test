@@ -87,10 +87,10 @@ function HomePage(){
     return(
         <div id = "card">
             <div id = "top-rectangle">
-                <div id = "name">
+                <div>
                     the enigma machine.  
                     <div class="inner-description">
-                        <button onClick={()=>setOpenPlay(true)}>play</button>
+                        <button onClick={()=>setOpenPlay(true)}>demo</button>
                         <button onClick={()=>setOpenDescription(true)}>about</button>
                     </div>
                 </div>
@@ -122,28 +122,26 @@ function HomePage(){
                         <button class = "close-description-modal" onClick={()=>setOpenDescription(false)}>x</button>
                     </div>
                     <div class="description description-modal-title">
-                        The Enigma Machine
+                        the history and structure of the enigma machine.
                     </div> 
                     <div class="description">
-                        The Enigma machine was an encryption device used by the Germans during World War II. Enigma was thought to be uncrackable,
-                        until Alan Turing invented a decryption device that took approximately 3 years to perfect.  
+                        the enigma machine was a german encryption device used during world war 2. the machine can 
+                        encode messages in billions of different ways, which rendered it virtually unsolvable until alan turing
+                        and a group of mathematicians built a countering decryption device, the bombe. 
                     </div>
                     <div class="description">
-                        Enigma's complexity is due to a combination of mathematical group theory and mechanical ingenuity. The machine
-                        has three main parts that are applied to each of the user's input letters: the plugboard, the rotors, and the reflector.
+                        enigma's complexity is due to a combination of mathematical group theory and mechanical ingenuity, with three main parts:
+                        a plugboard, rotors, and reflector. 
                     </div>
                     <div class="description">
-                        The plugboard generates random pairings of each letter based on letter pairs that the operator would connect with a wire.
-                        This functionality is simulated by exhaustively pairing letters from the alphabet together every time the page is reloaded. 
+                        the plugboard generates random pairings of each letter by exhaustively generating pairs every time the page is reloaded.
                     </div>
                     <div class="description">
-                        The plugboard assignment of the input letter is then sequentially passed through the three rotors. The output of each rotor is 
-                        used as the input for the next rotor, and the rotors increment by 1 with each new letter, so that the new letter will not
-                        get mapped to the same input. 
+                        the plugboard input is then sequentially passed through each rotor, which increment by 1 with each entered input letter. 
                     </div>
                     <div class="description">
-                        After an input letter passes through the three rotors, the reflector passes it back through the three rotors
-                        in the opposite direction for an added layer of encryption.
+                        after passing through the three rotors, a reflector passed the encoded letter back through the rotors in the opposite
+                        direction for an added layer of encryption. 
                     </div>
                 </div>
             </div>
@@ -155,11 +153,11 @@ function HomePage(){
                         <button class = "close-description-modal" onClick={()=>setOpenPlay(false)}>x</button>
                     </div>
                     <div class="description description-modal-title">
-                        Try it out!
+                        try it out!
                     </div>
                     <div class="description">
-                        Click on the text input area and begin typing. The corresponding key on screen will depress, and
-                        the lamp corresponding to the encoded input will light up. The rotors will also increment by one
+                        click on the text input area and begin typing. the corresponding on-screen key will depress, and
+                        the lamp corresponding to the encoded input will light up. the rotors will also increment by one
                         as appropriate.
                     </div>
                 </div>
