@@ -82,7 +82,7 @@ a:hover{
 }
 
 .pressed-key{
-  transform: scale(0.925);
+  transform: scale(0.975);
   transition: transform 0.1s ease;
 }
 
