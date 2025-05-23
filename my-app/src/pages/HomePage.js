@@ -90,7 +90,6 @@ function HomePage(){
                 <div>
                     the enigma machine.  
                     <div class="inner-description">
-                        <button onClick={()=>setOpenPlay(true)}>demo</button>
                         <button onClick={()=>setOpenDescription(true)}>about</button>
                     </div>
                 </div>
@@ -119,12 +118,10 @@ function HomePage(){
             <div class="description-modal">
                 <div class="description-content">
                     <div class="description-modal-close-header">
-                        <button class = "close-description-modal" onClick={()=>setOpenDescription(false)}>x</button>
+                        <span class="description-modal-title">enigma's history and structure.</span>
+                        <button class = "close-description-modal" onClick={()=>setOpenDescription(false)}>X</button>
                     </div>
-                    <div class="description description-modal-title">
-                        the history and structure of the enigma machine.
-                    </div> 
-                    <div class="description">
+                    <div class="description" style={{paddingTop: '5%'}}>
                         the enigma machine was a german encryption device used during world war 2. the machine can 
                         encode messages in billions of different ways, which rendered it virtually unsolvable until alan turing
                         and a group of mathematicians built a countering decryption device, the bombe. 
@@ -139,26 +136,12 @@ function HomePage(){
                     <div class="description">
                         the plugboard input is then sequentially passed through each rotor, which increment by 1 with each entered input letter. 
                     </div>
-                    <div class="description">
+                    <div class="description" style={{paddingBottom: '7.5%'}}>
                         after passing through the three rotors, a reflector passed the encoded letter back through the rotors in the opposite
                         direction for an added layer of encryption. 
                     </div>
-                </div>
-            </div>
-        )}
-        {openPlay && (
-            <div class="description-modal">
-                <div class="description-content">
-                <div class="description-modal-close-header">
-                        <button class = "close-description-modal" onClick={()=>setOpenPlay(false)}>x</button>
-                    </div>
-                    <div class="description description-modal-title">
-                        try it out!
-                    </div>
-                    <div class="description">
-                        click on the text input area and begin typing. the corresponding on-screen key will depress, and
-                        the lamp corresponding to the encoded input will light up. the rotors will also increment by one
-                        as appropriate.
+                    <div class="description-modal-footer">
+                        <button class="description-footer-button" onClick={()=>setOpenDescription(false)}>close</button>
                     </div>
                 </div>
             </div>
