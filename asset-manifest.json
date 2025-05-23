@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/draft-test/static/css/main.e1025cc7.chunk.css",
-    "main.js": "/draft-test/static/js/main.33d8c86b.chunk.js",
-    "main.js.map": "/draft-test/static/js/main.33d8c86b.chunk.js.map",
-    "runtime~main.js": "/draft-test/static/js/runtime~main.94340264.js",
-    "runtime~main.js.map": "/draft-test/static/js/runtime~main.94340264.js.map",
-    "static/js/2.df909a1d.chunk.js": "/draft-test/static/js/2.df909a1d.chunk.js",
-    "static/js/2.df909a1d.chunk.js.map": "/draft-test/static/js/2.df909a1d.chunk.js.map",
-    "static/js/3.f3df841d.chunk.js": "/draft-test/static/js/3.f3df841d.chunk.js",
-    "static/js/3.f3df841d.chunk.js.map": "/draft-test/static/js/3.f3df841d.chunk.js.map",
+    "main.js": "/draft-test/static/js/main.c7ad9fda.chunk.js",
+    "main.js.map": "/draft-test/static/js/main.c7ad9fda.chunk.js.map",
+    "runtime~main.js": "/draft-test/static/js/runtime~main.c84597e9.js",
+    "runtime~main.js.map": "/draft-test/static/js/runtime~main.c84597e9.js.map",
+    "static/js/2.481a5eba.chunk.js": "/draft-test/static/js/2.481a5eba.chunk.js",
+    "static/js/2.481a5eba.chunk.js.map": "/draft-test/static/js/2.481a5eba.chunk.js.map",
+    "static/js/3.686d18a0.chunk.js": "/draft-test/static/js/3.686d18a0.chunk.js",
+    "static/js/3.686d18a0.chunk.js.map": "/draft-test/static/js/3.686d18a0.chunk.js.map",
     "index.html": "/draft-test/index.html",
-    "precache-manifest.b1952e20bb11a17d6f050a321d5cd187.js": "/draft-test/precache-manifest.b1952e20bb11a17d6f050a321d5cd187.js",
+    "precache-manifest.5f736e7b64218fedfadf2148f647fb8c.js": "/draft-test/precache-manifest.5f736e7b64218fedfadf2148f647fb8c.js",
     "service-worker.js": "/draft-test/service-worker.js",
     "static/css/main.e1025cc7.chunk.css.map": "/draft-test/static/css/main.e1025cc7.chunk.css.map",
     "static/media/A.png": "/draft-test/static/media/A.0ce80d1b.png",
@@ -64,6 +64,7 @@
     "static/media/Y.png": "/draft-test/static/media/Y.527c467e.png",
     "static/media/Y_pressed.png": "/draft-test/static/media/Y_pressed.0e71adec.png",
     "static/media/Z.png": "/draft-test/static/media/Z.d7087d2c.png",
-    "static/media/Z_pressed.png": "/draft-test/static/media/Z_pressed.6a503e1f.png"
+    "static/media/Z_pressed.png": "/draft-test/static/media/Z_pressed.6a503e1f.png",
+    "static/media/keypress_audio.mp3": "/draft-test/static/media/keypress_audio.fcbd472d.mp3"
   }
 }
