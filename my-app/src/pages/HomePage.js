@@ -32,6 +32,8 @@ import Z from "../assets/images/rotors/orientations/Z.png";
 import gears_Icon from "../assets/images/rotors/gears.png";
 import rod_Icon from "../assets/images/rotors/rod.png";
 
+import keypress_audio from "../assets/audio/keypress_audio.mp3";
+
 import { SetupEnigma, EncodeLetter, UpdateRotors} from "../EncryptAlgo";
 
 
@@ -42,6 +44,7 @@ function HomePage(){
     const [rotorLetters, setRotorLetters] = useState(["A", "A", "A"]);
     const [openDescription, setOpenDescription] = useState(false);
     const [openPlay, setOpenPlay] = useState(false);
+    const audio_object = useRef(null);
 
     const rotor_images = {A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z};
 
@@ -53,6 +56,7 @@ function HomePage(){
         const initial_rotor_letters = rotors_rotations.map(r => "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[r%26]);
         setRotorLetters(initial_rotor_letters);
         machine.current = {plugboard, rotors, reflector, rotors_rotations};
+        audio_object.current = new Audio(keypress_audio);
     }, []);
 
     const handleInputEntered = (e) => {
@@ -68,6 +72,9 @@ function HomePage(){
             UpdateRotors(rotors, rotors_rotations);
             const updatedRotorLetters = rotors_rotations.map(r => "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[r%26]);
             setRotorLetters(updatedRotorLetters);
+
+            audio_object.current.currentTime = 0;
+            audio_object.current.play();
         }
 
         setInput(text);
