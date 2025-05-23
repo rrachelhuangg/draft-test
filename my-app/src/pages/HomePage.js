@@ -33,6 +33,7 @@ import gears_Icon from "../assets/images/rotors/gears.png";
 import rod_Icon from "../assets/images/rotors/rod.png";
 
 import keypress_audio from "../assets/audio/keypress_audio.mp3";
+import gears_audio from "../assets/audio/gears_audio.mp3";
 
 import { SetupEnigma, EncodeLetter, UpdateRotors} from "../EncryptAlgo";
 
@@ -44,7 +45,8 @@ function HomePage(){
     const [rotorLetters, setRotorLetters] = useState(["A", "A", "A"]);
     const [openDescription, setOpenDescription] = useState(false);
     const [openPlay, setOpenPlay] = useState(false);
-    const audio_object = useRef(null);
+    const keypress_audio_object = useRef(null);
+    const gears_audio_object = useRef(null);
 
     const rotor_images = {A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z};
 
@@ -56,7 +58,10 @@ function HomePage(){
         const initial_rotor_letters = rotors_rotations.map(r => "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[r%26]);
         setRotorLetters(initial_rotor_letters);
         machine.current = {plugboard, rotors, reflector, rotors_rotations};
-        audio_object.current = new Audio(keypress_audio);
+        keypress_audio_object.current = new Audio(keypress_audio);
+        keypress_audio_object.current.volume = 0.3;
+        gears_audio_object.current = new Audio(gears_audio);
+        gears_audio_object.current.volume = 0.85;
     }, []);
 
     const handleInputEntered = (e) => {
@@ -73,8 +78,10 @@ function HomePage(){
             const updatedRotorLetters = rotors_rotations.map(r => "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[r%26]);
             setRotorLetters(updatedRotorLetters);
 
-            audio_object.current.currentTime = 0;
-            audio_object.current.play();
+            keypress_audio_object.current.currentTime = 0;
+            keypress_audio_object.current.play();
+            gears_audio_object.current.currentTime = 0;
+            gears_audio_object.current.play();
         }
 
         setInput(text);
