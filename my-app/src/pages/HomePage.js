@@ -47,6 +47,14 @@ function HomePage(){
     const [openPlay, setOpenPlay] = useState(false);
     const keypress_audio_object = useRef(null);
     const gears_audio_object = useRef(null);
+    const [pressedKey, setPressedKey] = useState("");
+    const [enteredCount, setEnteredCount] = useState(0);
+    const [longTermInput, setLongTermInput] = useState("");
+    const [isBackspaceKey, setIsBackspaceKey] = useState(false);
+
+    const logKeyPress = (e) => {
+        setIsBackspaceKey(e.key==="Backspace");
+    }
 
     const rotor_images = {A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z};
 
@@ -65,28 +73,42 @@ function HomePage(){
     }, []);
 
     const handleInputEntered = (e) => {
-        const text = e.target.value.charAt(e.target.value.length-1).toUpperCase();
+        const currInput = e.target.value.replace(/^input text:\s*/, "");
 
-        let encodedLetter = "";
-        if("ABCDEFGHIJKLMNOPQRSTUVWXYZ".includes(text) === false){
-            encodedLetter = text;
+        if(isBackspaceKey && currInput.length < longTermInput.length){
+            let i = 0;
+            while(i < currInput.length && currInput[i]===longTermInput[i]){
+                i++;
+            }
+            setFullEncodedInput((prev)=>prev.slice(0, i) + prev.slice(i+1));
+            setLongTermInput(currInput);
         }
         else{
-            const {plugboard, rotors, reflector, rotors_rotations} = machine.current;
-            encodedLetter = EncodeLetter(text, plugboard, rotors, reflector);
-            UpdateRotors(rotors, rotors_rotations);
-            const updatedRotorLetters = rotors_rotations.map(r => "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[r%26]);
-            setRotorLetters(updatedRotorLetters);
+            const text = e.target.value.charAt(e.target.value.length-1).toUpperCase();
+            let encodedLetter = "";
 
-            keypress_audio_object.current.currentTime = 0;
-            keypress_audio_object.current.play();
-            gears_audio_object.current.currentTime = 0;
-            gears_audio_object.current.play();
+            if("ABCDEFGHIJKLMNOPQRSTUVWXYZ".includes(text) === false){
+                encodedLetter = text;
+            }
+            else{
+                const {plugboard, rotors, reflector, rotors_rotations} = machine.current;
+                encodedLetter = EncodeLetter(text, plugboard, rotors, reflector);
+                UpdateRotors(rotors, rotors_rotations);
+                const updatedRotorLetters = rotors_rotations.map(r => "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[r%26]);
+                setRotorLetters(updatedRotorLetters);
+    
+                keypress_audio_object.current.currentTime = 0;
+                keypress_audio_object.current.play();
+                gears_audio_object.current.currentTime = 0;
+                gears_audio_object.current.play();
+            }
+    
+            setInput(text);
+            setEncodedInput(encodedLetter);
+            setFullEncodedInput(prev => prev + encodedLetter);
+            setEnteredCount(prev=>prev+1);
+            setLongTermInput(currInput);
         }
-
-        setInput(text);
-        setEncodedInput(encodedLetter);
-        setFullEncodedInput(prev => prev + encodedLetter);
     }
 
     useEffect(() => {
@@ -111,7 +133,7 @@ function HomePage(){
             <div id = "bottom-rectangle">
                 <div id="enigma-body">
                     <div id="display-area">
-                        <textarea id = "plain-text-input" rows="12" cols="50" onChange={handleInputEntered}>plain text input: </textarea>
+                        <textarea id = "plain-text-input" rows="12" cols="50" onChange={handleInputEntered} onKeyDown={logKeyPress}>input text: </textarea>
                         <div id="rotors-container">
                             <img src={rod_Icon} id="rod"/>
                             <div id="rotors">
@@ -136,22 +158,22 @@ function HomePage(){
                         <button class = "close-description-modal" onClick={()=>setOpenDescription(false)}>X</button>
                     </div>
                     <div class="description" style={{paddingTop: '5%'}}>
-                        the enigma machine was a german encryption device used during world war 2. the machine can 
-                        encode messages in billions of different ways, which rendered it virtually unsolvable until alan turing
-                        and a group of mathematicians built a countering decryption device, the bombe. 
+                        The Enigma machine was a German encryption device used during World War 2. The machine can 
+                        encode messages in billions of different ways, which rendered it virtually unsolvable until Alan Turing
+                        and a group of mathematicians built a countering decryption device, the Bombe. 
                     </div>
                     <div class="description">
-                        enigma's complexity is due to a combination of mathematical group theory and mechanical ingenuity, with three main parts:
+                        Enigma's complexity is due to a combination of mathematical group theory and mechanical ingenuity, with three main parts:
                         a plugboard, rotors, and reflector. 
                     </div>
                     <div class="description">
-                        the plugboard generates random pairings of each letter by exhaustively generating pairs every time the page is reloaded.
+                        The plugboard generates random pairings of each letter by exhaustively generating pairs every time the page is reloaded.
                     </div>
                     <div class="description">
-                        the plugboard input is then sequentially passed through each rotor, which increment by 1 with each entered input letter. 
+                        The plugboard input is then sequentially passed through each rotor, which increment by 1 with each entered input letter. 
                     </div>
                     <div class="description" style={{paddingBottom: '7.5%'}}>
-                        after passing through the three rotors, a reflector passed the encoded letter back through the rotors in the opposite
+                        After passing through the three rotors, a reflector passed the encoded letter back through the rotors in the opposite
                         direction for an added layer of encryption. 
                     </div>
                     <div class="description-modal-footer">
