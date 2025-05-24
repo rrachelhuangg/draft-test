@@ -264,3 +264,20 @@ button:hover{
   border-radius: 2px;
   cursor: pointer;
 }
+
+#mobile-view{
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100vw;
+  height: 100vh;
+  background-color: blue;
+  opacity: 0;
+  display: none;
+}
+
+@media (min-width:480px)  {
+  #mobile-view{
+    opacity:1;
+  }
+}
