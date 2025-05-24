@@ -137,7 +137,11 @@ function HomePage(){
 
     return(
         <div id = "card">
-            <div id="mobile-view">enigma was meant for physical keyboards, please switch to a bigger device.</div>
+            <div id="mobile-view">
+                <div id="mobile-inner">
+                    enigma was meant for physical keyboards, please switch to a bigger device.
+                </div>
+            </div>
             <div id = "top-rectangle">
                 <div>
                     the enigma machine.  

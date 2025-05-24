@@ -277,17 +277,39 @@ button:hover{
   color: #f6f7f9;
 }
 
+#mobile-inner{
+  position: fixed;
+  top:0;
+  left:0;
+  width: 75vw;
+  height: 75vh;
+  background-color: #383e47;
+  opacity: 0;
+  display: none;
+  color: #f6f7f9;
+}
+
 @media (max-width:480px)  {
   #mobile-view{
     opacity:1;
     display: flex;
     justify-content: center;
-    align-items: top;
+    align-items: center;
     font-size: 200%;
     font-weight: 200;
     padding-left: 5%;
     padding-right: 5%;
     padding-top: 30%;
+    z-index: 1000;
+  }
+  #mobile-inner{
+    opacity:1;
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    font-size: 150%;
+    font-weight: 200;
+    z-index: 1001;
   }
   #rotors-container{
     display: none;
