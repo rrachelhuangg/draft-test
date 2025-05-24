@@ -137,7 +137,7 @@ function HomePage(){
 
     return(
         <div id = "card">
-            <div id="mobile-view">Enigma UI is meant for laptops, please switch to a bigger device.</div>
+            <div id="mobile-view">enigma is meant for laptops, please switch to a bigger device.</div>
             <div id = "top-rectangle">
                 <div>
                     the enigma machine.  

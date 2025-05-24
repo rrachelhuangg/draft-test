@@ -271,14 +271,21 @@ button:hover{
   left:0;
   width: 100vw;
   height: 100vh;
-  background-color: blue;
+  background-color: #1f1f1f;
   opacity: 0;
   display: none;
+  color: #f6f7f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width:480px)  {
   #mobile-view{
     opacity:1;
     display: block;
+  }
+  #rotors-container{
+    display: none;
   }
 }
