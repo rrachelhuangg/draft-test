@@ -47,8 +47,6 @@ function HomePage(){
     const [openPlay, setOpenPlay] = useState(false);
     const keypress_audio_object = useRef(null);
     const gears_audio_object = useRef(null);
-    const [pressedKey, setPressedKey] = useState("");
-    const [enteredCount, setEnteredCount] = useState(0);
     const [longTermInput, setLongTermInput] = useState("");
     const [isBackspaceKey, setIsBackspaceKey] = useState(false);
 
@@ -80,7 +78,13 @@ function HomePage(){
             while(i < currInput.length && currInput[i]===longTermInput[i]){
                 i++;
             }
-            setFullEncodedInput((prev)=>prev.slice(0, i) + prev.slice(i+1));
+            let longTermEnd = longTermInput.length-1;
+            let currEnd = currInput.length-1;
+            while(currEnd >= i && longTermInput[longTermEnd]===currInput[currEnd]){
+                longTermEnd=longTermEnd-1;
+                currEnd=currEnd-1;
+            }
+            setFullEncodedInput((prev)=>prev.slice(0, i) + prev.slice(longTermEnd+1));
             setLongTermInput(currInput);
         }
         else{
@@ -106,7 +110,6 @@ function HomePage(){
             setInput(text);
             setEncodedInput(encodedLetter);
             setFullEncodedInput(prev => prev + encodedLetter);
-            setEnteredCount(prev=>prev+1);
             setLongTermInput(currInput);
         }
     }
