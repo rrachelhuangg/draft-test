@@ -287,7 +287,10 @@ button:hover{
     opacity:1;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: top;
+    padding-left:5%;
+    padding-right: 5%;
+    padding-top: 40%;
     z-index: 1000;
   }
   #mobile-inner{
@@ -295,8 +298,9 @@ button:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 90%;
     z-index: 1001;
+    padding-left: 10%;
+    padding-right: 10%;
     background-color: #383e47;
   }
   #rotors-container{
