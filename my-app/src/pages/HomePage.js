@@ -92,7 +92,10 @@ function HomePage(){
             setLongTermInput(currInput);
         }
         else{
-            const text = e.target.value.charAt(e.target.value.length-1).toUpperCase();
+            const letter = e.target.value.charAt(e.target.value.length-1);
+            const input_case = (letter===letter.toUpperCase() && letter!==letter.toLowerCase()) ?  "U" : "L";
+
+            const text = letter.toUpperCase();
             let encodedLetter = "";
 
             if("ABCDEFGHIJKLMNOPQRSTUVWXYZ".includes(text) === false){
@@ -113,7 +116,12 @@ function HomePage(){
     
             setInput(text);
             setEncodedInput(encodedLetter);
-            setFullEncodedInput(prev => prev + encodedLetter);
+            if(input_case==="U"){
+                setFullEncodedInput(prev => prev + encodedLetter);
+            }
+            else{
+                setFullEncodedInput(prev => prev + encodedLetter.toLowerCase());
+            }
             setLongTermInput(currInput);
         }
     }
