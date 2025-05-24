@@ -44,7 +44,6 @@ function HomePage(){
     const [fullEncodedInput, setFullEncodedInput] = useState("");
     const [rotorLetters, setRotorLetters] = useState(["A", "A", "A"]);
     const [openDescription, setOpenDescription] = useState(false);
-    const [openPlay, setOpenPlay] = useState(false);
     const keypress_audio_object = useRef(null);
     const gears_audio_object = useRef(null);
     const [longTermInput, setLongTermInput] = useState("");
@@ -72,8 +71,13 @@ function HomePage(){
 
     const handleInputEntered = (e) => {
         const currInput = e.target.value.replace(/^input text:\s*/, "");
+        const post_length = currInput.length;
 
-        if(isBackspaceKey && currInput.length < longTermInput.length){
+        if(isBackspaceKey && post_length == 0 && currInput.length == longTermInput.length){
+            setLongTermInput(prev=>prev);
+            setEncodedInput("");
+        }
+        else if(isBackspaceKey && currInput.length < longTermInput.length && post_length >= 0){
             let i = 0;
             while(i < currInput.length && currInput[i]===longTermInput[i]){
                 i++;
@@ -136,7 +140,7 @@ function HomePage(){
             <div id = "bottom-rectangle">
                 <div id="enigma-body">
                     <div id="display-area">
-                        <textarea id = "plain-text-input" rows="12" cols="50" onChange={handleInputEntered} onKeyDown={logKeyPress}>input text: </textarea>
+                        <textarea id = "plain-text-input" rows="12" cols="50" onChange={handleInputEntered} onKeyDown={logKeyPress} value={"input text: " + longTermInput}>input text: </textarea>
                         <div id="rotors-container">
                             <img src={rod_Icon} id="rod"/>
                             <div id="rotors">
