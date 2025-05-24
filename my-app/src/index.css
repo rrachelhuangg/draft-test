@@ -279,6 +279,7 @@ button:hover{
 
 #mobile-inner{
   display: none;
+  background-color: #383e47;
 }
 
 @media (max-width:480px)  {
@@ -296,6 +297,7 @@ button:hover{
     align-items: center;
     font-size: 90%;
     z-index: 1001;
+    background-color: #383e47;
   }
   #rotors-container{
     display: none;
