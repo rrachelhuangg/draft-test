@@ -282,9 +282,12 @@ button:hover{
     opacity:1;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: top;
     font-size: 200%;
     font-weight: 200;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 30%;
   }
   #rotors-container{
     display: none;
