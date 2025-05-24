@@ -275,15 +275,16 @@ button:hover{
   opacity: 0;
   display: none;
   color: #f6f7f9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 @media (max-width:480px)  {
   #mobile-view{
     opacity:1;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 200%;
+    font-weight: 200;
   }
   #rotors-container{
     display: none;
