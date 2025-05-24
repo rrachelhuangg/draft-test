@@ -294,8 +294,8 @@ button:hover{
     align-items: center;
     z-index: 1001;
     padding: 10%;
-    width: 80vw;
-    height: 80vh;
+    width: 70vw;
+    height: 50vh;
     background-color: #383e47;
   }
   #rotors-container{
